@@ -65,7 +65,7 @@
           <heros></heros>
         </div>
         <div class="bgImage" v-if="indexItem === '4'" :class="showMoveOut? 'moveOut':''">
-          <div class="heroBox" style="min-height: 845px">
+          <!-- <div class="heroBox" style="min-height: 845px">
             <div class="zanwu team">
               <img src="../assets/zanwu.png" style="width: 200px;height: 180px" />
               <div>敬请期待</div>
@@ -73,7 +73,8 @@
               <div style="font-size: 16px">联系方式(QQ、微信)：389651411</div>
               <div style="font-size: 16px">此软件为免费软件，请勿用作商业用途</div>
             </div>
-          </div>
+          </div> -->
+          <team></team>
         </div>
       </Content>
     </Layout>
@@ -94,12 +95,14 @@ import {
 import weapons from "../components/weapons.vue";
 import collocation from "../components/collocation.vue";
 import heros from "../components/heroType.vue";
+import team from "../components/team.vue";
 export default {
   name: "home",
   components: {
     weapons,
     collocation,
     heros,
+    team,
     Tabs,
     TabPane,
     Menu,
