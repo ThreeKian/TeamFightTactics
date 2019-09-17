@@ -1,0 +1,336 @@
+恶魔0
+龙族1
+浪人2
+极地3
+帝国4
+忍者5
+贵族6
+暗影7
+海盗8
+机器人9
+虚空10
+狂野11
+约德尔人12
+
+
+刺客0
+剑士1
+斗士2
+元素使3
+护卫4
+枪手5
+骑士6
+游侠7
+换形师8
+法师9
+allHeroList: [
+        {
+          name: "阿卡丽",
+          img: require("../assets/cz/akl.png"),
+          type: 5,
+          job: 0
+        },
+        {
+          name: "阿里，阿狸，狐狸",
+          img: require("../assets/cz/al.png"),
+          type: 11,
+          job: 9
+        },
+        {
+          name: "波比",
+          img: require("../assets/cz/bb.png"),
+          type: 12,
+          job: 6
+        },
+        {
+          name: "布隆",
+          img: require("../assets/cz/bl.png"),
+          type: 3,
+          job: 4
+        },
+        {
+          name: "丽桑卓，冰女",
+          img: require("../assets/cz/bn.png"),
+          type: 3,
+          job: 3
+        },
+        {
+          name: "船长，普朗克",
+          img: require("../assets/cz/cz.png"),
+          type: 8,
+          job: 1,
+          job2: 5
+        },
+        {
+          name: "大虫子，科加斯",
+          img: require("../assets/cz/dcz.png"),
+          type: 10,
+          job: 2
+        },
+        {
+          name: "德莱文",
+          img: require("../assets/cz/dlw.png"),
+          type: 4,
+          job: 1
+        },
+        {
+          name: "冰鸟，凤凰，艾尼维亚",
+          img: require("../assets/cz/fh.png"),
+          type: 3,
+          job: 3
+        },
+        {
+          name: "寡妇，伊芙琳",
+          img: require("../assets/cz/gf.png"),
+          type: 0,
+          job: 0
+        },
+        {
+          name: "德玛，盖伦",
+          img: require("../assets/cz/gl.png"),
+          type: 6,
+          job: 6
+        },
+        {
+          name: "寒冰，艾希",
+          img: require("../assets/cz/hb.png"),
+          type: 3,
+          job: 7
+        },
+        {
+          name: "火男，布兰德",
+          img: require("../assets/cz/hn.png"),
+          type: 0,
+          job: 3
+        },
+        {
+          name: "女枪，好运姐，赏金猎人，厄运小姐",
+          img: require("../assets/cz/hyj.png"),
+          type: 8,
+          job: 5
+        },
+        {
+          name: "劫",
+          img: require("../assets/cz/j.png"),
+          type: 5,
+          job: 0
+        },
+        {
+          name: "剑姬，菲欧娜",
+          img: require("../assets/cz/jj.png"),
+          type: 6,
+          job: 1
+        },
+        {
+          name: "剑魔，亚托克斯",
+          img: require("../assets/cz/jm.png"),
+          type: 0,
+          job: 1
+        },
+        {
+          name: "机器人，布里茨",
+          img: require("../assets/cz/jqr.png"),
+          type: 9,
+          job: 2
+        },
+        {
+          name: "凯南",
+          img: require("../assets/cz/kn.png"),
+          type: 5,
+          type2: 12,
+          job: 3
+        },
+        {
+          name: "卡萨丁",
+          img: require("../assets/cz/ksd.png"),
+          type: 10,
+          job: 9
+        },
+        {
+          name: "卡特琳娜",
+          img: require("../assets/cz/ktln.png"),
+          type: 4,
+          job: 0
+        },
+        {
+          name: "露露",
+          img: require("../assets/cz/ll.png"),
+          type: 12,
+          job: 9
+        },
+        {
+          name: "拉面熊，沃利贝尔，狗熊",
+          img: require("../assets/cz/lm.png"),
+          type: 3,
+          job: 2
+        },
+        {
+          name: "龙女，希瓦娜",
+          img: require("../assets/cz/ln.png"),
+          type: 1,
+          job: 8
+        },
+        {
+          name: "狼人，沃里克",
+          img: require("../assets/cz/lr.png"),
+          type: 11,
+          job: 2
+        },
+        {
+          name: "龙王，奥瑞利安·索尔",
+          img: require("../assets/cz/lw.png"),
+          type: 1,
+          job: 9
+        },
+        {
+          name: "卢锡安，奥巴马",
+          img: require("../assets/cz/lxa.png"),
+          type: 6,
+          job: 5
+        },
+        {
+          name: "莫干那",
+          img: require("../assets/cz/mgn.png"),
+          type: 0,
+          job: 9
+        },
+        {
+          name: "奈德丽，豹女，奶大力",
+          img: require("../assets/cz/ndl.png"),
+          type: 11,
+          job: 8
+        },
+        {
+          name: "纳尔",
+          img: require("../assets/cz/ne.png"),
+          type: 11,
+          type2: 12,
+          job: 8
+        },
+        {
+          name: "男枪，格雷福斯",
+          img: require("../assets/cz/nq.png"),
+          type: 8,
+          job: 5
+        },
+        {
+          name: "诺手，德莱厄斯",
+          img: require("../assets/cz/ns.png"),
+          type: 4,
+          job: 6
+        },
+        {
+          name: "派克",
+          img: require("../assets/cz/pk.png"),
+          type: 8,
+          job: 0
+        },
+        {
+          name: "千珏",
+          img: require("../assets/cz/qj.png"),
+          type: 7,
+          job: 7
+        },
+        {
+          name: "日女，雷欧娜",
+          img: require("../assets/cz/rn.png"),
+          type: 6,
+          job: 4
+        },
+        {
+          name: "慎，腰子，肾",
+          img: require("../assets/cz/s.png"),
+          type: 5,
+          job: 1
+        },
+        {
+          name: "死歌，死哥，卡尔萨斯",
+          img: require("../assets/cz/sg.png"),
+          type: 7,
+          job: 9
+        },
+        {
+          name: "狮子狗，雷恩加尔",
+          img: require("../assets/cz/szg.png"),
+          type: 11,
+          job: 0
+        },
+        {
+          name: "螳螂，卡兹克",
+          img: require("../assets/cz/tl.png"),
+          type: 10,
+          job: 0
+        },
+        {
+          name: "铁男，莫德凯撒",
+          img: require("../assets/cz/tn.png"),
+          type: 7,
+          job: 6
+        },
+        {
+          name: "天使，凯尔",
+          img: require("../assets/cz/ts.png"),
+          type: 6,
+          job: 6
+        },
+        {
+          name: "VN，vn，薇恩，澡子哥，枣子哥，洗澡狗",
+          img: require("../assets/cz/vn.png"),
+          type: 6,
+          job: 7
+        },
+        {
+          name: "挖掘机，雷克塞",
+          img: require("../assets/cz/wjj.png"),
+          type: 10,
+          job: 2
+        },
+        {
+          name: "韦鲁斯，维鲁斯",
+          img: require("../assets/cz/wls.png"),
+          type: 0,
+          job: 7
+        },
+        {
+          name: "乌鸦，斯维因",
+          img: require("../assets/cz/wy.png"),
+          type: 4,
+          type2: 0,
+          job: 8
+        },
+        {
+          name: "小法，维嘉，维迦",
+          img: require("../assets/cz/xf.png"),
+          type: 12,
+          job: 9
+        },
+        {
+          name: "小炮，崔丝塔娜",
+          img: require("../assets/cz/xp.png"),
+          type: 12,
+          job: 5
+        },
+        {
+          name: "亚索，孤儿，快乐风男",
+          img: require("../assets/cz/ys.png"),
+          type: 2,
+          job: 1
+        },
+        {
+          name: "猪妹，猪女，瑟庄妮",
+          img: require("../assets/cz/zm.png"),
+          type: 3,
+          job: 6
+        },
+        {
+          name: "蜘蛛，伊莉丝",
+          img: require("../assets/cz/zz.png"),
+          type: 0,
+          job: 8
+        },
+        {
+          name: "卡牌大师，崔斯特",
+          img: require("../assets/cz/kp.png"),
+          type: 8,
+          job: 9
+        }],
