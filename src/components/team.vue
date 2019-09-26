@@ -51,26 +51,36 @@
         </RadioGroup>
       </div>
     </div>
-    <div class="heroBox" v-if="!showEmpty">
-      <div class="hero-table" v-for="(item,index) in showHeroList" :key="index">
-        <div class="hero-box">
-          <img src="../assets/Images/champs/akl.png" class="hero-img" />
-          <div class="attribute-box">
-            <div class="attribute-content">
-              <img src="../assets/Images/icon/ay.png" class="icon-type" />
-              <div class="attribute-text">约德尔</div>
-            </div>
-            <div class="attribute-content" style="margin-top: 8px;">
-              <img src="../assets/Images/icon/lr.png" class="icon-type" />
-              <div class="attribute-text">法师</div>
-            </div>
-            <div class="attribute-content" style="margin-top: 8px;">
-              <img src="../assets/Images/jb.png" class="icon-type" />
-              <div class="attribute-text">4</div>
+    <div style="display: flex;">
+      <div class="hero-box" v-if="!showEmpty">
+        <div
+          class="hero-table"
+          v-for="(item,index) in showHeroList"
+          :key="index"
+          @click="choosedHero(index)"
+        >
+          <div class="content-box">
+            <img src="../assets/Images/champs/akl.png" class="hero-img" />
+            <div class="attribute-box">
+              <div class="attribute-content">
+                <img src="../assets/Images/icon/ay.png" class="icon-type" />
+                <div class="attribute-text">约德尔</div>
+              </div>
+              <div class="attribute-content" style="margin-top: 8px;">
+                <img src="../assets/Images/icon/lr.png" class="icon-type" />
+                <div class="attribute-text">法师</div>
+              </div>
+              <div class="attribute-content" style="margin-top: 8px;">
+                <img src="../assets/Images/jb.png" class="icon-type" />
+                <div class="attribute-text">4</div>
+              </div>
             </div>
           </div>
+          <!-- <img :src="item.img" class="heroImg" /> -->
         </div>
-        <!-- <img :src="item.img" class="heroImg" /> -->
+      </div>
+      <div class="right-content">
+        <h2 class="right-content-title">阵容列表</h2>
       </div>
     </div>
     <div class="heroBox" v-if="showEmpty">
@@ -478,12 +488,12 @@ export default {
 };
 </script>
 <style type="less" scope>
-.heroBox {
+.hero-box {
   display: flex;
   flex-wrap: wrap;
-  width: calc(100% - 40px);
+  width: calc(75% - 20px);
   text-align: center;
-  margin: 0 20px 0 20px;
+  margin-left: 20px;
   max-height: 640px;
 }
 .hero-table {
@@ -491,7 +501,7 @@ export default {
   width: 200px;
   height: 120px;
 }
-.hero-box {
+.content-box {
   width: 200px;
   height: 120px;
   display: flex;
@@ -530,6 +540,17 @@ export default {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
+  color: #666;
+}
+.right-content {
+  border: 1px solid #f1f1f1;
+  width: calc(25% - 20px);
+  margin: 15px 20px 0 0;
+}
+.right-content-title {
+  font-weight: bold;
+  text-align: left;
+  margin: 10px 0 10px 10px;
   color: #666;
 }
 </style>
