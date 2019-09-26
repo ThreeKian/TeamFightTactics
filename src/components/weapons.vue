@@ -146,7 +146,6 @@ export default {
   border: 1px solid #f1f1f1;
   width: calc(30% - 10px);
   height: auto;
-  margin: 10px 10px 10px 0;
 }
 .title {
   text-align: left;

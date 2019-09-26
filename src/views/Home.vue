@@ -30,10 +30,10 @@
           </div>
         </Menu>
       </Header>
-      <Content :style="{margin: '60px 10px 0 10px', background: '#fff', minHeight: '500px'}">
+      <Content :style="{margin: '50px 10px 0 10px', background: '#fff', minHeight: '500px'}">
         <div class="bgImage" v-if="indexItem === '1'" :class="showMoveOut? 'moveOut':''">
           <div style="display: flex;height:100%; overflow:hidden; margin:0 auto;">
-            <div class="bgImage" style="width: 80%;height: 100%;margin-top: 10px">
+            <div class="bgImage" style="width: 80%;height: 100%;">
               <table>
                 <tr v-for="(item1,index1) in weaponsList" :key="index1">
                   <td
