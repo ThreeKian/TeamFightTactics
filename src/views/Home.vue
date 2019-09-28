@@ -4,7 +4,6 @@
       <Header :style="{position: 'fixed', width: '100%', marginTop: '-1px'}">
         <Menu mode="horizontal" theme="dark" :active-name="indexItem">
           <div class="layout-box">
-            <div class="layout-logo"></div>
             <div class="layout-nav">
               <MenuItem name="1">
                 <div @click="changeItem('1')">
@@ -16,13 +15,13 @@
                   <Icon type="ios-keypad"></Icon>羁绊
                 </div>
               </MenuItem>
-              <MenuItem name="3">
+              <!-- <MenuItem name="3">
                 <div @click="changeItem('3')">
                   <Icon type="ios-analytics"></Icon>英雄
                 </div>
-              </MenuItem>
+              </MenuItem> -->
               <MenuItem name="4">
-                <div @click="changeItem('4')">
+                <div @click="changeItem('3')">
                   <Icon type="ios-paper"></Icon>阵容
                 </div>
               </MenuItem>
@@ -30,10 +29,10 @@
           </div>
         </Menu>
       </Header>
-      <Content :style="{margin: '50px 10px 0 10px', background: '#fff', minHeight: '500px'}">
+      <Content :style="{margin: '40px 10px 0 10px', background: '#fff', minHeight: '500px'}">
         <div class="bgImage" v-if="indexItem === '1'" :class="showMoveOut? 'moveOut':''">
           <div style="display: flex;height:100%; overflow:hidden; margin:0 auto;">
-            <div class="bgImage" style="width: 80%;height: 100%;">
+            <div class="bgImage leftWeapons">
               <table>
                 <tr v-for="(item1,index1) in weaponsList" :key="index1">
                   <td
@@ -46,14 +45,19 @@
                       <img
                         :src="item2.img"
                         v-if="item2.img"
-                        :class="index2 !==0 ? 'contentImg':'firstContentImg'"
+                        :class="index2 !== 0 ? 'contentImg':'firstContentImg'"
+                        :style="{'margin': index1 !== 0 ? '15px 0 15px 0':'0'}"
                       />
-                      <div class="contentText" v-if="item2.content">{{item2.content}}</div>
+                      <div class="contentText" v-if="item2.content"
+                      :style="{'height': index1 !== 0 ? '70px':'auto'}">
+                      {{item2.content}}
+                      </div>
                     </div>
                   </td>
                 </tr>
               </table>
             </div>
+            <!-- 装备合成 -->
             <weapons style="float:right; height:auto;height: auto"></weapons>
           </div>
         </div>
@@ -61,17 +65,17 @@
           <!-- <img src="../assets/hero.png" class="showImage hero" /> -->
           <collocation></collocation>
         </div>
-        <div class="bgImage" v-if="indexItem === '3'" :class="showMoveOut? 'moveOut':''">
+        <!-- <div class="bgImage" v-if="indexItem === '3'" :class="showMoveOut? 'moveOut':''">
           <heros></heros>
-        </div>
-        <div class="bgImage" v-if="indexItem === '4'" :class="showMoveOut? 'moveOut':''">
+        </div> -->
+        <div class="bgImage" v-if="indexItem === '3'" :class="showMoveOut? 'moveOut':''">
           <!-- <div class="heroBox" style="min-height: 845px">
             <div class="zanwu team">
               <img src="../assets/zanwu.png" style="width: 200px;height: 180px" />
               <div>敬请期待</div>
               <div style="margin-top: 100px;font-size: 16px">ThreeKian--仨仟君</div>
               <div style="font-size: 16px">联系方式(QQ、微信)：389651411</div>
-              <div style="font-size: 16px">此软件为免费软件，请勿用作商业用途</div>
+              <div style="font-size: 16px">此软件为免费软件,请勿用作商业用途</div>
             </div>
           </div> -->
           <team></team>
@@ -94,14 +98,13 @@ import {
 } from "iview";
 import weapons from "../components/weapons.vue";
 import collocation from "../components/collocation.vue";
-import heros from "../components/heroType.vue";
+// import heros from "../components/heroType.vue";
 import team from "../components/team.vue";
 export default {
   name: "home",
   components: {
     weapons,
     collocation,
-    heros,
     team,
     Tabs,
     TabPane,
@@ -120,9 +123,9 @@ export default {
     };
   },
   mounted() {
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 10; i++) {
       let list = [];
-      for (let k = 0; k < 9; k++) {
+      for (let k = 0; k < 10; k++) {
         let data = {
           img: ""
         };
@@ -140,7 +143,6 @@ export default {
       };
       this.weaponsList.push(dict);
     }
-
     this.weaponsList[0].weapons[1].content = "+15攻击力";
     this.weaponsList[0].weapons[2].content = "+20%技能伤害";
     this.weaponsList[0].weapons[3].content = "+20%攻速";
@@ -149,82 +151,100 @@ export default {
     this.weaponsList[0].weapons[6].content = "+20%魔抗";
     this.weaponsList[0].weapons[7].content = "+200生命值";
     this.weaponsList[0].weapons[8].content = "搭配武器属性翻倍 :)";
+    this.weaponsList[0].weapons[9].content = "+10%暴击和闪避几率";
 
-    this.weaponsList[1].weapons[1].content = "+100%暴击伤害";
+    this.weaponsList[1].weapons[1].content = "在击杀或者助攻后获得一层额外15攻击力,可无限叠加";
     this.weaponsList[1].weapons[2].content = "+25%全能吸血";
-    this.weaponsList[1].weapons[3].content = "每秒+7%暴击(上限100%)";
+    this.weaponsList[1].weapons[3].content = "攻击会造成目标5%最大生命值额外真实伤害";
     this.weaponsList[1].weapons[4].content =
-      "用技能后每次普攻回复最大法力值的20%";
-    this.weaponsList[1].weapons[5].content = "死亡后复活：复活后回复1000生命值";
-    this.weaponsList[1].weapons[6].content = "普攻伤害35%吸血";
+      "用技能后每次普攻回复15%最大法力值";
+    this.weaponsList[1].weapons[5].content = "死亡后复活：复活后回复500生命值";
+    this.weaponsList[1].weapons[6].content = "普攻伤害40%吸血";
     this.weaponsList[1].weapons[7].content = "左右两格内友军+15%攻速";
     this.weaponsList[1].weapons[8].content = "装备者视为刺客";
+    this.weaponsList[1].weapons[9].content = "+150暴击";
 
     this.weaponsList[2].weapons[1].content = "+25%全能吸血";
     this.weaponsList[2].weapons[2].content = "+50%技能伤害";
     this.weaponsList[2].weapons[3].content = "每次普攻+5%攻速(无上限)";
-    this.weaponsList[2].weapons[4].content = "技能造成200点溅射伤害";
-    this.weaponsList[2].weapons[5].content = "开打时左右临格友军+300护盾";
-    this.weaponsList[2].weapons[6].content = "敌人每次释放技能-100血";
-    this.weaponsList[2].weapons[7].content = "技能造成目标10%最大HP伤害";
+    this.weaponsList[2].weapons[4].content = "技能造成180点溅射伤害";
+    this.weaponsList[2].weapons[5].content = "开打时左右临格友军+300护盾,持续7秒";
+    this.weaponsList[2].weapons[6].content = "敌人每次释放技能-125血";
+    this.weaponsList[2].weapons[7].content = "技能造成目标20%最大HP伤害";
     this.weaponsList[2].weapons[8].content = "装备者视为法师";
+    this.weaponsList[2].weapons[9].content = "技能有25%几率暴击";
 
-    this.weaponsList[3].weapons[1].content = "每秒+7%暴击(上限100%)";
+    this.weaponsList[3].weapons[1].content = "攻击会造成目标5%最大生命值额外真实伤害";
     this.weaponsList[3].weapons[2].content = "每次普攻+5%攻速(无上限)";
-    this.weaponsList[3].weapons[3].content = "普攻不会被闪避，射程翻倍";
-    this.weaponsList[3].weapons[4].content = "每3下普攻造成100点溅射伤害";
+    this.weaponsList[3].weapons[3].content = "普攻射程翻倍";
+    this.weaponsList[3].weapons[4].content = "每3下普攻造成100点魔法伤害弹射3个目标";
     this.weaponsList[3].weapons[5].content = "装备者闪避所有暴击攻击";
-    this.weaponsList[3].weapons[6].content = "普攻有几率使敌人-1星";
-    this.weaponsList[3].weapons[7].content = "普攻造成装备者10%最大HP伤害";
+    this.weaponsList[3].weapons[6].content = "普攻有20%几率使敌人-1星";
+    this.weaponsList[3].weapons[7].content = "对目标与其身后目标造成6%最大HP伤害";
     this.weaponsList[3].weapons[8].content = "装备者视为剑士";
+    this.weaponsList[3].weapons[9].content = "死亡时装备会跳到友方身上并提供额外20%攻速和暴击";
 
     this.weaponsList[4].weapons[1].content =
-      "用技能后每次普攻回复最大法力值的20%";
-    this.weaponsList[4].weapons[2].content = "技能造成200点溅射伤害";
-    this.weaponsList[4].weapons[3].content = "每3下普攻造成100点溅射伤害";
-    this.weaponsList[4].weapons[4].content = "有人使用技能时，+20法力值";
-    this.weaponsList[4].weapons[5].content = "临格敌人-20%攻速";
-    this.weaponsList[4].weapons[6].content = "普攻有几率对敌人造成沉默";
-    this.weaponsList[4].weapons[7].content =
-      "装备者低于25%生命时，友军回复800血";
+      "用技能后每次普攻回复15%最大法力值";
+    this.weaponsList[4].weapons[2].content = "技能造成180点溅射伤害";
+    this.weaponsList[4].weapons[3].content = "每3下普攻造成100点魔法伤害弹射3个目标";
+    this.weaponsList[4].weapons[4].content = "释放技能后立刻恢复20%法力值";
+    this.weaponsList[4].weapons[5].content = "临格敌人-35%攻速,持续4秒";
+    this.weaponsList[4].weapons[6].content = "普攻有33%几率防止敌人获得法力值,持续4秒";
+    this.weaponsList[4].weapons[7].content = "装备者低于25%生命时,友军回复1200血";
     this.weaponsList[4].weapons[8].content = "装备者视为恶魔";
+    this.weaponsList[4].weapons[9].content = "战斗开始造成伤害+40%或攻击恢复40生命";
 
-    this.weaponsList[5].weapons[1].content = "死亡后复活：复活后回复1000生命值";
-    this.weaponsList[5].weapons[2].content = "开打时左右临格友军+300护盾";
+    this.weaponsList[5].weapons[1].content = "死亡后复活：复活后回复500生命值";
+    this.weaponsList[5].weapons[2].content = "开打时左右临格友军+300护盾,持续7秒";
     this.weaponsList[5].weapons[3].content = "装备者闪避所有暴击攻击";
-    this.weaponsList[5].weapons[4].content = "临格敌人-20%攻速";
+    this.weaponsList[5].weapons[4].content = "临格敌人-35%攻速,持续4秒";
     this.weaponsList[5].weapons[5].content = "反弹100%普攻伤害";
     this.weaponsList[5].weapons[6].content = "普攻有33%几率对敌人造成缴械";
-    this.weaponsList[5].weapons[7].content = "普攻造成10%灼烧伤害";
+    this.weaponsList[5].weapons[7].content = "普攻造成20%灼烧伤害";
     this.weaponsList[5].weapons[8].content = "装备者视为骑士";
+    this.weaponsList[5].weapons[9].content = "闪避时增加一个区域减少敌人35%攻速";
 
-    this.weaponsList[6].weapons[1].content = "普攻伤害35%吸血";
-    this.weaponsList[6].weapons[2].content = "敌人每次释放技能-100血";
-    this.weaponsList[6].weapons[3].content = "普攻有几率使敌人-1星";
-    this.weaponsList[6].weapons[4].content = "普攻有几率对敌人造成沉默";
+    this.weaponsList[6].weapons[1].content = "普攻伤害40%吸血";
+    this.weaponsList[6].weapons[2].content = "敌人每次释放技能-125血";
+    this.weaponsList[6].weapons[3].content = "普攻有20%几率使敌人-1星";
+    this.weaponsList[6].weapons[4].content = "普攻有33%几率防止敌人获得法力值,持续4秒";
     this.weaponsList[6].weapons[5].content = "普攻有33%几率对敌人造成缴械";
-    this.weaponsList[6].weapons[6].content = "装备者获得83%魔抗";
-    this.weaponsList[6].weapons[7].content = "开打时，放逐一名敌人6秒";
-    this.weaponsList[6].weapons[8].content = "攻击1名额外敌人，造成75%伤害";
+    this.weaponsList[6].weapons[6].content = "装备者获得75%魔抗";
+    this.weaponsList[6].weapons[7].content = "开打时,放逐一名敌人6秒";
+    this.weaponsList[6].weapons[8].content = "攻击1名额外敌人,造成75%伤害";
+    this.weaponsList[6].weapons[9].content = "被控时净化,冷却时间5秒";
 
     this.weaponsList[7].weapons[1].content = "左右两格内友军+15%攻速";
-    this.weaponsList[7].weapons[2].content = "技能造成目标10%最大HP伤害";
-    this.weaponsList[7].weapons[3].content = "普攻造成装备者10%最大HP伤害";
+    this.weaponsList[7].weapons[2].content = "技能造成目标20%最大HP伤害";
+    this.weaponsList[7].weapons[3].content = "对目标与其身后目标造成6%最大HP伤害";
     this.weaponsList[7].weapons[4].content =
-      "装备者低于25%生命时，友军回复800血";
-    this.weaponsList[7].weapons[5].content = "普攻造成10%灼烧伤害";
-    this.weaponsList[7].weapons[6].content = "开打时，放逐一名敌人6秒";
-    this.weaponsList[7].weapons[7].content = "装备者每秒回复6%已损失生命值";
+      "装备者低于25%生命时,友军回复1200血";
+    this.weaponsList[7].weapons[5].content = "普攻造成20%灼烧伤害";
+    this.weaponsList[7].weapons[6].content = "开打时,放逐一名敌人6秒";
+    this.weaponsList[7].weapons[7].content = "装备者每秒回复6%已损失生命值,上限每秒400";
     this.weaponsList[7].weapons[8].content = "装备者视为极地";
+    this.weaponsList[7].weapons[9].content = "战斗开始获得法术护盾,护盾被打破时使目标眩晕";
 
     this.weaponsList[8].weapons[1].content = "装备者视为刺客";
     this.weaponsList[8].weapons[2].content = "装备者视为法师";
     this.weaponsList[8].weapons[3].content = "装备者视为剑士";
     this.weaponsList[8].weapons[4].content = "装备者视为恶魔";
     this.weaponsList[8].weapons[5].content = "装备者视为骑士";
-    this.weaponsList[8].weapons[6].content = "攻击1名额外敌人，造成75%伤害";
+    this.weaponsList[8].weapons[6].content = "攻击1名额外敌人,造成75%伤害";
     this.weaponsList[8].weapons[7].content = "装备者视为极地";
     this.weaponsList[8].weapons[8].content = "人口+1";
+    this.weaponsList[8].weapons[9].content = "变成约德尔人";
+
+    this.weaponsList[9].weapons[1].content = "+150暴击";
+    this.weaponsList[9].weapons[2].content = "技能有25%几率暴击";
+    this.weaponsList[9].weapons[3].content = "死亡时装备会跳到友方身上并提供额外20%攻速和暴击";
+    this.weaponsList[9].weapons[4].content = "战斗开始造成伤害+40%或攻击恢复40生命";
+    this.weaponsList[9].weapons[5].content = "闪避时增加一个区域减少敌人35%攻速";
+    this.weaponsList[9].weapons[6].content = "被控时净化,冷却时间5秒";
+    this.weaponsList[9].weapons[7].content = "战斗开始获得法术护盾,护盾被打破时使目标眩晕";
+    this.weaponsList[9].weapons[8].content = "变成约德尔人";
+    this.weaponsList[9].weapons[9].content = "占用三个物品栏,备战开始时复制2个随机装备";
   },
   methods: {
     changeItem(index) {
@@ -255,38 +275,45 @@ export default {
   width: calc(100% - 20px);
   margin: 10px 10px;
 }
+.leftWeapons {
+  width: 85%;
+  height: 100%;
+  overflow: hidden;
+}
 .tdWidth {
-  width: calc((100% - 50px) / 8);
+  /* width: calc((100% - 50px) / 9); */
+  width: 145px;
 }
 .contentBox {
   display: flex;
 }
 .firstContentImg {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 .contentImg {
-  width: calc(40% - 2px);
+  width: 40px;
   height: 40px;
-  margin: 10px 2px 10px 0;
+  margin: 15px 2px 15px 0;
   text-align: center;
   vertical-align: middle;
   display: table-cell;
 }
 .contentText {
   height: 70px;
-  width: calc(60% - 3px);
-  margin: 0 3px 0 0;
+  width: 66px;
+  margin: 0 0 0 -3px;
   font-size: 10px;
   font-weight: 300;
   color: white;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
   display: table-cell;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transform: scale(.82);
 }
 .team {
   margin-top: 200px;
@@ -301,12 +328,12 @@ export default {
   background: rgba(0, 0, 0, 0) !important;
 }
 .ivu-menu-horizontal {
-  height: 50px !important;
-  line-height: 50px !important;
+  height: 40px !important;
+  line-height: 40px !important;
 }
 .ivu-layout-header {
-  height: 50px !important;
-  line-height: 50px !important;
+  height: 40px !important;
+  line-height: 40px !important;
 }
 .ivu-menu-dark.ivu-menu-horizontal .ivu-menu-item,
 .ivu-menu-dark.ivu-menu-horizontal .ivu-menu-submenu {
@@ -327,10 +354,11 @@ export default {
   height: 100%;
 }
 .layout-box {
-  width: 50%;
+  /* width: 50%; */
+  width: 100%;
   justify-content: space-between;
   display: flex;
-  margin-left: calc(50% - 35px);
+  /* margin-left: calc(50% - 35px); */
 }
 .layout-logo {
   width: 50px;
@@ -341,9 +369,10 @@ export default {
   background-position: center;
 }
 .layout-nav {
-  width: 420px;
+  /* width: 420px; */
+  width: 246px;
   margin: 0 auto;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 .layout-footer-center {
   text-align: center;

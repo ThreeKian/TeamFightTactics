@@ -86,7 +86,7 @@ export default {
             }
           ],
           name: '龙族',
-          attribute: '<span>-减83魔免</span><span style="color:red">(2)</span>'
+          attribute: '<span>-减75%魔免</span><span style="color:red">(2)</span>'
         },
         {
           List: [
@@ -105,11 +105,16 @@ export default {
             {
               name: require('../assets/Images/champs/dcz.png'),
               star: '4'
+            },
+            {
+              name: require('../assets/Images/champs/ks.png'),
+              star: '5'
             }
           ],
           name: '虚空',
           attribute:
-            '<span>虚空英雄造成真实伤害</span><span style="color:red">(3)</span>'
+            '<span>1名随机虚空英雄造成真实伤害</span><span style="color:red">(2)</span>' +
+            '<span>所有虚空英雄</span><span style="color:red">(4)</span>'
         },
         {
           List: [
@@ -184,7 +189,7 @@ export default {
           name: '忍者',
           attribute:
             '<span>只有</span><span style="color:red">(1)</span><span>：该忍者角色提高攻击力和法术强度50 </span>' +
-            '<span style="color:red">(4)</span><span>所有忍者提高攻击力和法术强度70</span>'
+            '<span style="color:red">(4)</span><span>所有忍者提高攻击力和法术强度80</span>'
         },
         {
           List: [
@@ -243,7 +248,7 @@ export default {
           ],
           name: '贵族',
           attribute:
-            '<span>随机一个友军+100护甲并且每次攻击治疗该友军50点护甲和魔抗以及每次攻击获得25生命</span><span style="color:red">(3)</span>' +
+            '<span>随机一个友军+50护甲和魔抗并且每次攻击获得30生命</span><span style="color:red">(3)</span>' +
             '<span>所有友军</span><span style="color:red">(6)</span>'
         },
         {
@@ -275,8 +280,8 @@ export default {
           ],
           name: '极地',
           attribute:
-            '<span>20%</span><span style="color:red">(2)</span><span>，30%</span><span style="color:red">(4)</span>' +
-            '<span>，45%</span><span style="color:red">(6)</span><span>几率造成2秒眩晕效果</span>'
+            '<span>20%</span><span style="color:red">(2)</span><span>，33%</span><span style="color:red">(4)</span>' +
+            '<span>，50%</span><span style="color:red">(6)</span><span>几率造成2秒眩晕效果</span>'
         },
         {
           List: [
@@ -308,7 +313,7 @@ export default {
           name: '约德尔',
           attribute:
             '<span>对友方约德尔人进行的攻击会有35%</span><span style="color:red">(3)</span>' +
-            '<span>60%</span><span style="color:red">(6)</span><span>几率命中</span>'
+            '<span>60%</span><span style="color:red">(6)</span><span>90%</span><span style="color:red">(9)</span><span>几率命中</span>'
         },
         {
           List: [
@@ -449,11 +454,15 @@ export default {
             {
               name: require('../assets/Images/champs/qj.png'),
               star: '4'
+            },
+            {
+              name: require('../assets/Images/champs/ks.png'),
+              star: '5'
             }
           ],
           name: '游侠',
           attribute:
-            '<span>每3秒有30%</span><span style="color:red">(2)</span><span>，70%</span><span style="color:red">(4)</span>' +
+            '<span>每3秒有25%</span><span style="color:red">(2)</span><span>，70%</span><span style="color:red">(4)</span>' +
             '<span>概率攻速翻倍，持续3秒</span>'
         },
         {
@@ -486,7 +495,7 @@ export default {
           name: '斗士',
           attribute:
             '<span>获得额外250</span><span style="color:red">(2)</span><span>，500</span><span style="color:red">(4)</span>' +
-            '<span>，900</span><span style="color:red">(4)</span><span>点最大生命值</span>'
+            '<span>，900</span><span style="color:red">(6)</span><span>点最大生命值</span>'
         },
         {
           List: [
@@ -518,7 +527,7 @@ export default {
           name: '枪手',
           attribute:
             '<span>攻击后有50%几率对范围内1个</span><span style="color:red">(2)</span><span>，2个</span><span style="color:red">(4)</span>' +
-            '<span>，3个</span><span style="color:red">(4)</span><span>敌人进行额外打击</span>'
+            '<span>，3个</span><span style="color:red">(6)</span><span>敌人进行额外打击</span>'
         },
         {
           List: [
@@ -549,7 +558,7 @@ export default {
           ],
           name: '换形师',
           attribute:
-            '<span>在变形时获得60%</span><span style="color:red">(4)</span><span>，120%</span><span style="color:red">(6)</span>' +
+            '<span>在变形时获得60%</span><span style="color:red">(4)</span><span>，100%</span><span style="color:red">(6)</span>' +
             '<span>最大生命值</span>'
         },
         {
@@ -585,7 +594,7 @@ export default {
           ],
           name: '剑士',
           attribute:
-            '<span>每次攻击有35%几率打出1次</span><span style="color:red">(3)</span><span>，2次</span><span style="color:red">(6)</span>' +
+            '<span>每次攻击有45%几率打出1次</span><span style="color:red">(3)</span><span>，2次</span><span style="color:red">(6)</span>' +
             '<span>，4次</span><span style="color:red">(9)</span><span>额外攻击</span>'
         },
         {
@@ -649,6 +658,10 @@ export default {
             {
               name: require('../assets/Images/champs/akl.png'),
               star: '4'
+            },
+            {
+              name: require('../assets/Images/champs/ks.png'),
+              star: '5'
             }
           ],
           name: '刺客',

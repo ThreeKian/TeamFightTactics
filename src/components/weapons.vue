@@ -10,6 +10,7 @@
       <div class="content six" @click="chooseWeapons(6)"></div>
       <div class="content seven" @click="chooseWeapons(7)"></div>
       <div class="content eight" @click="chooseWeapons(8)"></div>
+      <div class="content nine" @click="chooseWeapons(9)"></div>
     </div>
     <div style="display: flex;justify-content: space-between">
       <p class="title">我的装备</p>
@@ -74,6 +75,10 @@ export default {
         {
           name: require('../assets/Images/composeWeapons/Spatula.png'),
           index: 8
+        },
+        {
+          name: require('../assets/Images/composeWeapons/qt.png'),
+          index: 9
         }
       ],
       sjChoosedList: [],
@@ -160,7 +165,7 @@ export default {
 }
 .content {
   width: 10%;
-  padding: 10% 0 0;
+  padding: 9% 0 0;
   margin: 10px 0 10px 2.2%;
 }
 .one {
@@ -193,6 +198,10 @@ export default {
 }
 .eight {
   background: url("../assets/Images/composeWeapons/Spatula.png");
+  background-size: cover;
+}
+.nine {
+  background: url("../assets/Images/composeWeapons/qt.png");
   background-size: cover;
 }
 .myWeapons {
