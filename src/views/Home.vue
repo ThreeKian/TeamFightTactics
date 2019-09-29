@@ -27,7 +27,6 @@
               </MenuItem>
             </div>
           </div>
-          <div style="color: white;font-size: 12px;width: 215px;margin-top: -38px;margin-left: 1210px;" v-if="indexItem === '1'">↓ 如嫌字体太小可将鼠标移至装备图标上</div>
         </Menu>
       </Header>
       <Content :style="{margin: '40px 10px 0 10px', background: '#fff', minHeight: '500px'}">
