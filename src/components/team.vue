@@ -126,7 +126,10 @@
             </div>
           </div>
         </div>
-        <h2 class="right-content-title">羁绊</h2>
+        <div style="display: flex">
+          <h2 class="right-content-title">羁绊</h2>
+          <div style="line-height: 47px;color: #666;margin-left: 10px;">(鼠标移至下列文字上方有羁绊详情提示)</div>
+        </div>
         <div class="cell" style="flex-wrap: wrap;display: flex;">
           <div
             v-for="(data, index) in collocationData"

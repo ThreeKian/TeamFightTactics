@@ -15,18 +15,19 @@
                   <Icon type="ios-keypad"></Icon>羁绊
                 </div>
               </MenuItem>
-              <!-- <MenuItem name="3">
+              <MenuItem name="3">
                 <div @click="changeItem('3')">
-                  <Icon type="ios-analytics"></Icon>英雄
+                  <Icon type="ios-analytics"></Icon>阵容
                 </div>
-              </MenuItem> -->
+              </MenuItem>
               <MenuItem name="4">
-                <div @click="changeItem('3')">
-                  <Icon type="ios-paper"></Icon>阵容
+                <div @click="changeItem('4')">
+                  <Icon type="ios-paper"></Icon>简介
                 </div>
               </MenuItem>
             </div>
           </div>
+          <div style="color: white;font-size: 12px;width: 215px;margin-top: -38px;margin-left: 1210px;" v-if="indexItem === '1'">↓ 如嫌字体太小可将鼠标移至装备图标上</div>
         </Menu>
       </Header>
       <Content :style="{margin: '40px 10px 0 10px', background: '#fff', minHeight: '500px'}">
@@ -41,18 +42,23 @@
                     style="background: rgba(0, 0, 0, .7)"
                     :class="index2 !== 0?'tdWidth':''"
                   >
-                    <div class="contentBox">
-                      <img
-                        :src="item2.img"
-                        v-if="item2.img"
-                        :class="index2 !== 0 ? 'contentImg':'firstContentImg'"
-                        :style="{'margin': index1 !== 0 ? '15px 0 15px 0':'0'}"
-                      />
-                      <div class="contentText" v-if="item2.content"
-                      :style="{'height': index1 !== 0 ? '70px':'auto'}">
-                      {{item2.content}}
+                    <Tooltip placement="top" max-width="200" :disabled="item2.content && index1 === 0" :transfer="true" theme="light" style="z-index: 100000">
+                      <div class="contentBox">
+                        <img
+                          :src="item2.img"
+                          v-if="item2.img"
+                          :class="index2 !== 0 ? 'contentImg':'firstContentImg'"
+                          :style="{'margin': index1 !== 0 ? '15px 0 15px 0':'0'}"
+                        />
+                        <div class="contentText" v-if="item2.content"
+                             :style="{'height': index1 !== 0 ? '70px':'auto'}">
+                          {{item2.content}}
+                        </div>
                       </div>
-                    </div>
+                      <div slot="content">
+                        <span>{{item2.content}}</span>
+                      </div>
+                    </Tooltip>
                   </td>
                 </tr>
               </table>
@@ -65,20 +71,20 @@
           <!-- <img src="../assets/hero.png" class="showImage hero" /> -->
           <collocation></collocation>
         </div>
-        <!-- <div class="bgImage" v-if="indexItem === '3'" :class="showMoveOut? 'moveOut':''">
-          <heros></heros>
-        </div> -->
         <div class="bgImage" v-if="indexItem === '3'" :class="showMoveOut? 'moveOut':''">
-          <!-- <div class="heroBox" style="min-height: 845px">
+<!--          <heros></heros>-->
+          <team></team>
+        </div>
+        <div class="bgImage" v-if="indexItem === '4'" :class="showMoveOut? 'moveOut':''">
+          <div class="heroBox" style="min-height: 845px">
             <div class="zanwu team">
               <img src="../assets/zanwu.png" style="width: 200px;height: 180px" />
-              <div>敬请期待</div>
               <div style="margin-top: 100px;font-size: 16px">ThreeKian--仨仟君</div>
-              <div style="font-size: 16px">联系方式(QQ、微信)：389651411</div>
-              <div style="font-size: 16px">此软件为免费软件,请勿用作商业用途</div>
+              <div style="font-size: 16px;margin-top: 15px;">已适配英雄联盟9.18版本</div>
+              <div style="font-size: 16px;margin-top: 15px;">此软件为免费软件,请勿用作商业用途，如有问题请联系本人</div>
+              <div style="font-size: 16px;margin-top: 15px;">联系方式(QQ、微信)：389651411</div>
             </div>
-          </div> -->
-          <team></team>
+          </div>
         </div>
       </Content>
     </Layout>
@@ -370,7 +376,7 @@ export default {
 }
 .layout-nav {
   /* width: 420px; */
-  width: 246px;
+  width: 330px;
   margin: 0 auto;
   /* margin-right: 20px; */
 }
